@@ -125,3 +125,14 @@ const playBeat = () => {
     store.beat = props.beat
 }
 </script>
+
+<style lang="scss">
+.overlay-enter-active,
+.overlay-leave-active {
+  transition: opacity .2s ease;
+}
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+</style>
