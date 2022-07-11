@@ -4,4 +4,8 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
     buildModules: ['@pinia/nuxt'],
     modules: ['@nuxtjs/tailwindcss'],
+    target: 'static',
+    router: {
+        base: '/beatstore_player/'
+    }
 })
