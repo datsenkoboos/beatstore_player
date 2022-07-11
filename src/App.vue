@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app flex flex-col min-h-screen items-center justify-center">
+    <BeatstoreBeat
+      :beat="beat"
+    />
+    <div class="fixed bottom-0 w-full">
+      <BeatstorePlayer />
+    </div>
+  </div>
+
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import BeatstoreBeat from '@/components/BeatstoreBeat.vue'
+import BeatstorePlayer from '@/components/BeatstorePlayer.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+const publicPath = process.env.BASE_URL
+const beat = {
+    id: 1,
+    name: 'Vibes',
+    bpm: 210,
+    artist: {
+      name: 'Drake',
+      id: 4,
+    },
+    wrap: `${publicPath}images/wrap27.jpg`,
+    audio: {
+      mp3: `${publicPath}audio/Vibes_Drake_210BPM.mp3`,
+      wav: `${publicPath}audio/Vibes_Drake_210BPM.mp3`,
+    },
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  background: no-repeat url('@/assets/images/bg.png');
+  background-size: cover;
 }
+// fonts
+@import url("@/assets/css/fonts.css");
+
 </style>
